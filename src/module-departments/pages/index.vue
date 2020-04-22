@@ -41,14 +41,14 @@
                             </el-dropdown-menu>
                           </el-dropdown>
                         </div>
-                      </span>  
+                      </span>
                     </div>
                   </div>
 
-                  <!-- 
+                  <!--
                     构造树形列表
                       叶子 <i class="fa fa-male"></i>
-                      非叶子 
+                      非叶子
                         展开 <i class="fa fa-minus-square-o">
                         闭合 <i class="fa fa-plus-square-o">
                     <div class="generalClass" slot-scope="{node,data}" style="width:99%">
@@ -68,7 +68,7 @@
                          <div class="fr">
                           <span class="treeRinfo">
                             <div class="treeRinfo">
-                              <span>{{departData.companyManage}}</span>
+                              <span>{{data.manager}}</span>
                               <span>在职  <em class="colGreen" title="在职人数">---</em>&nbsp;&nbsp;(<em class="colGreen" title="正式员工">---</em>&nbsp;/&nbsp;<em class="colRed" title="非正式员工">---</em>)</span>
                             </div>
                             <div class="treeRinfo">
@@ -92,12 +92,12 @@
                                 </el-dropdown-menu>
                               </el-dropdown>
                             </div>
-                          </span>  
+                          </span>
                         </div>
                       </div>
                     </el-tree>
               </div>
-            </div>    
+            </div>
       </el-card>
     </div>
     <!--:visible.sync 是否显示 -->
@@ -105,7 +105,7 @@
     <component v-bind:is="deptAdd" ref="addDept"></component>
 </div>
 </template>
- 
+
 <!-- 引入组件 -->
 <script>
 //引入api
@@ -117,7 +117,7 @@ export default {
   data() {
     return {
       deptAdd:'deptAdd',
-      activeName: 'first', 
+      activeName: 'first',
       departData:{},
       depts:[]
     }
@@ -138,7 +138,7 @@ export default {
          this.$refs.addDept.dialogFormVisible = true
       })
     },
-  
+
     handleDelete(id) {
        this.$confirm('是否删除此条记录?', '提示', {
           confirmButtonText: '确定',
@@ -209,7 +209,7 @@ export default {
 </style>
 <style  rel="stylesheet/scss" lang="scss" scoped>
 .el-tree-node__expand-icon{
- 
+
 }
 .el-icon-caret-right{}
 .el-tree-node__content{
