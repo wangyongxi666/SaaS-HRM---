@@ -70,11 +70,7 @@ const user = {
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         profile().then(response => {
-
           const data = response.data.data
-
-          console.log(data.roles)
-
           commit('SET_ROLES', data.roles?data.roles:{menus:[],points:[]})
           commit('SET_NAME', data.username)
           commit('SET_AVATAR', data.avatar)

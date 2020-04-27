@@ -2,16 +2,28 @@
   <div class="dashboard-container">
     <div class="app-container">
       <el-card>
+
           <el-tabs v-model="activeName" class="infoPosin">
             <el-tab-pane name="first" class="rInfo">
+             
+            <div class="fr">
+              <a  class="fa fa-print" aria-hidden="true"  title="打印" @click='handleExport()'></a>
+              <el-tooltip class="item" effect="dark" content="点击打印按钮->右击打印预览界面->点击'打印'" placement="top-end">
+                  <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+              </el-tooltip>
+            </div>
+            
+
               <span slot="label">登录账户设置</span>
               <component v-bind:is="accountInfo" :objId='objId' ref="user"></component>
             </el-tab-pane>
             <el-tab-pane name="two" class="rInfo">
                 <span slot="label">个人详情</span>
+                <component v-bind:is="userInfo" :objId='objId' ref="user"></component>
             </el-tab-pane>
             <el-tab-pane name="third" class="rInfo">
                 <span slot="label">岗位信息</span>
+                <component v-bind:is="postInfo" :objId='objId'></component>
             </el-tab-pane>
         </el-tabs>
       </el-card>
@@ -21,16 +33,27 @@
 
 <script>
 import accountInfo from './../components/details-account-info'
+import userInfo from './../components/details-user-info'
+import postInfo from './../components/details-post-info'
 export default {
   name: 'employeesDetails',
-  components: { accountInfo},
+  components: { accountInfo, userInfo, postInfo},
   data() {
     return {
       accountInfo:'accountInfo',
+      userInfo: 'userInfo',
+      postInfo: 'postInfo',  
       activeName: 'first',
       objId: this.$route.params.id,
       dataList: []
     }
+  },
+  methods: {
+        // 下载文件
+    handleExport() {
+      let id = this.$route.params.id;
+      location.href="http://localhost:9003/employees/"+id+"/pdf"
+    },
   }
 }
 </script>
