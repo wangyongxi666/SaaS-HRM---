@@ -9,6 +9,7 @@ import {hasPermissionPoint, hasPermission} from '@/utils/permission'
 
 // 定义
 const _import = require('./import_' + process.env.NODE_ENV) // 懒加载 导包
+// const whiteList = ['/login', '/reg', '/authredirect','/facelogin'] // 白名单 无需跳转
 const whiteList = ['/login', '/reg', '/authredirect','/facelogin'] // 白名单 无需跳转
 
 // 配置
@@ -17,7 +18,7 @@ NProgress.configure({showSpinner: false}) // NProgress Configuration
 
 /**
  * 基础路由
- * 
+ *
 * root: true                     在一级栏目显示
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
 * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length

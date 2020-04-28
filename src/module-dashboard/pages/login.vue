@@ -21,10 +21,8 @@
         </span>
       </el-form-item>
 
-      <el-button class="loginBtn" type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">{{$t('login.logIn')}}</el-button>
-      <!--
+      <el-button class="loginBtn" type="primary" style="width:49%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">{{$t('login.logIn')}}</el-button>
       <el-button class="loginBtn" type="primary" style="width:49%;margin-bottom:30px; margin-left:0" @click="handlecode">刷脸登录</el-button>
-      -->
       <div class="regInfo"><router-link :to="{'path':'/reg'}">还没有账号？立即注册</router-link></div>
       <div class="tips">
         <span>账号: <br>18636825185 (SaaS管理员)<br>
@@ -149,7 +147,7 @@ export default {
                 this.$store.commit('SET_TOKEN', this.token)
                 this.$router.push({ path: '/' })
               }
-            }
+            } 
             if (this.states == '0') {
               // 关闭
               this.centerDialogVisible = false
